@@ -1,7 +1,7 @@
 :root {
-    --blured: 10px;
-    --desplaced: 10px;
-    --colored: rgb(255, 208, 0); 
+    --blured: 0px;
+    --desplaced: 0px;
+    --colored: #ffc600; 
 }
 
 
@@ -21,3 +21,24 @@ body {
   input {
     width: 100px;
   }
+
+  img{
+      margin: 0;
+      position: relative;
+      top: var(--desplaced);
+      left: var(--desplaced);
+      filter: blur(var(--blured));
+  }
+
+
+  .img-container {
+    background-color: var(--colored);
+    margin: 0 auto;  
+    border-width: 40px;
+    border-style: solid;
+    border-color: var(--colored);
+    padding: 0;
+    height: 500px;
+    width: 800px;
+    filter: blur(var(--blured));
+}

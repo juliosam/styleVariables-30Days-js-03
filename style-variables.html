@@ -10,19 +10,39 @@
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <input id="spacing" type="range" name="desplaced" min="0" max="200" value="0" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blured" min="0" max="25" value="0" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <input id="base" type="color" name="colored" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
-
+  <div class="img-container">
+    <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  </div>
 
   <script>
+
+    const inputes = document.querySelectorAll(".controls input");
+   
+    let modifier = function(){
+
+      const suffix = this.dataset.sizing || " ";
+
+      console.log(this.value)
+
+      
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix )
+      
+    }
+    
+    inputes.forEach( inpute => inpute.addEventListener('change', modifier)); 
+    inputes.forEach( inpute => inpute.addEventListener('mousemove', modifier));
+
+
+
   </script>
 
 </body>
